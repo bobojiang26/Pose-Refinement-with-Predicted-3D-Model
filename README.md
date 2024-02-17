@@ -66,13 +66,16 @@ result: [-0.0118,  0.4876,  2.2365]
 
 The result is not satisfactory obivously. We know that only considering the loss between the rgb channels can not work perfectly. Therefore, we introduce the feature loss(using VGG as the backbone) and set the loss = img_loss + 0.005 * feature loss.
 
-The refinement process is；
+The refinement process is：
 
 ![pre_0 2_withfeature](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/083e570a-aaf4-4b31-8545-7a00e1a54604)
 
 target： [0, 0.5, 2.0] initial： [0.0, 0.7, 2.2]
-result: [-0.0394,  0.5082,  2.0196]    
+result: [-0.0394,  0.5082,  2.0196]
+
+We can find that the error is less than that of optimization without the feature loss.
 
 
 Problem to solve:
-1. The size and the pose of the ground truth 3d model and predicted one is different(not aligned). 
+1. The size and the pose of the ground truth 3d model and predicted one is different(not aligned).
+2. Find out when the difference between the initial image and the target image is not big, whether the pose can be refined well.
