@@ -1,0 +1,25 @@
+pre_0.2_withfeature ：
+用phong render渲染，起始位置和目标位置相差0.2（xyz），loss = 0.005 * feature loss + img loss
+target[0, 0.5, 2.0] initial[0.0, 0.7, 2.2]
+result: [-0.0394,  0.5082,  2.0196]            
+
+pre_0.2_nofeature ：
+用phong render渲染，起始位置和目标位置相差0.2（xyz），loss = img loss
+target[0, 0.5, 2.0] initial[0.0, 0.7, 2.2]
+result: [-0.0118,  0.4876,  2.2365]
+
+gt_0.2_withfeature ：
+用phong render渲染，起始位置和目标位置相差0.2（xyz），loss = img loss
+target[0, 0.5, 1.0] initial[0.0, 0.7, 1.2]
+[-0.0039,  0.7135,  1.1955]
+
+gt_0.2_nofeature ：
+用phong render渲染，起始位置和目标位置相差0.2（xyz），loss = img loss
+target[0, 0.5, 1.0] initial[0.0, 0.7, 1.2]
+[-1.0107e-03,  7.8874e-01,  1.1248e+00]
+
+
+siholette_demo:
+siholette render渲染，最后总会收敛到这个值（仍然有一定误差，但可以理解这个误差就是可以接受的范围）
+target[0, 0.5, 2.0] initial： any
+[0.0189, 0.4826, 2.0482]
