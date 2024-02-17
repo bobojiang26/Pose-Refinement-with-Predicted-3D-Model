@@ -77,5 +77,5 @@ We can find that the error is less than that of optimization without the feature
 
 
 Problem to solve:
-1. The size and the pose of the ground truth 3d model and predicted one is different(not aligned).
-2. Find out when the difference between the initial image and the target image is not big, whether the pose can be refined well.
+1. The size and the pose of the ground truth 3d model and the predicted one is different(not aligned).
+2. Find out when the difference between the initial image(the predicted model) and the target image(the ground truth model) is not big, whether the pose can be refined well.
