@@ -12,6 +12,7 @@ The silhouette render is effective for this problem. We can use the silhoutte re
 
 Here is an example:
 The ground truth model is:
+
 ![rgb_0006](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/fc9e7697-bf34-4dd4-b5e3-138a43563715)
 ![rgb_0005](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/88cba9a8-e7dd-4e72-a62c-3db7363a9693)
 ![rgb_0004](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/8b54333b-8268-4a83-acff-570e879d09c5)
@@ -24,11 +25,14 @@ The predicted model is:
 
 
 The initial image:
+
 ![initial_pre_gray](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/fafea8a6-25c5-43bc-a070-dea8e75fa677)
 The target image:
+
 ![target_gt_gray](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/2f5801ec-07c1-44c1-9e15-c5ddd08f21b9)
 
 The refinement process is visualized as:
+
 ![siholette_demo](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/1317faea-32e1-4608-9bf5-2d7b09ff00ed)
 
 
