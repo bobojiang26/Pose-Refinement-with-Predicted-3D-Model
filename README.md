@@ -27,6 +27,7 @@ The predicted model is:
 The initial image:
 
 ![initial_pre_gray](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/fafea8a6-25c5-43bc-a070-dea8e75fa677)
+
 The target image:
 
 ![target_gt_gray](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/2f5801ec-07c1-44c1-9e15-c5ddd08f21b9)
@@ -35,6 +36,43 @@ The refinement process is visualized as:
 
 ![siholette_demo](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/1317faea-32e1-4608-9bf5-2d7b09ff00ed)
 
+Here, whatever the initial pose is set, it can always be refined to the target pose. The pose always converges to the value and the error is very small.
+target: [0, 0.5, 2.0] initial： any
+result: [0.0189, 0.4826, 2.0482]
+Here we use the coordinates xyz, and the direction is always set to face the model.
 
 
-![pre_0 2_nofeature](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/8bbe467d-34b0-4910-bf7b-bfd31116591d)
+However, using silhoutte render and taking alpha channel as loss can not refinement the pose with the predicted 3d model and the ground truth image. The reason is that the predicted model is not perfect. The geometry and the texture are all different. The gap is large enough that optimization cannot converge. Therefore, phong render is what we needed because we can extract feature and some other high level information from the predicted model and the ground truth model. Now the loss is the MSE loss between the rgb channels of the initial image and the target image.
+
+There is one thing worth to mention: if we use the rgb channel as the loss, the silhoutte render can not backward the parameters. Only if taking the alpha channel as the loss can make the optimization continue. On the contrast, the phong render can only backward the parameters during the optimization only when taking the rgb channel as the loss. The alpha channel can not work for the phong render.
+
+We found that, when the difference between the initial pose and target pose is not very huge, the optimization can converge.
+Here is an example:
+
+The initial image:
+
+![initial_pre_0 2](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/6c77a511-3409-4a54-b249-eef10c87d04e)
+
+The target image:
+
+![target_pre_0 2](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/f1959b03-cc78-4df5-96d2-87459c79fe96)
+
+The refinement process is:
+
+![pre_0 2_nofeature](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/6f380b5c-a2c6-4339-8e53-a9867e7b891f)
+
+target: [0, 0.5, 2.0] initial: [0.0, 0.7, 2.2]
+result: [-0.0118,  0.4876,  2.2365]
+
+The result is not satisfactory obivously. We know that only considering the loss between the rgb channels can not work perfectly. Therefore, we introduce the feature loss(using VGG as the backbone) and set the loss = img_loss + 0.005 * feature loss.
+
+The refinement process is；
+
+![pre_0 2_withfeature](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/083e570a-aaf4-4b31-8545-7a00e1a54604)
+
+target： [0, 0.5, 2.0] initial： [0.0, 0.7, 2.2]
+result: [-0.0394,  0.5082,  2.0196]    
+
+
+Problem to solve:
+1. The size and the pose of the ground truth 3d model and predicted one is different(not aligned). 
