@@ -23,6 +23,14 @@ The ground truth model is:
 
 The predicted model is:
 
+![rgb_0006](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/cce3eace-1ca2-4aab-9576-e70dedc578cb)
+![rgb_0005](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/9f84cf9e-856e-4a1d-90b1-060d618ce9ac)
+![rgb_0004](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/a9fc60ac-cb05-473f-9ebc-9c0443953ba0)
+![rgb_0003](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/ce2f588d-4ca2-4542-b02f-b6e1c1392b67)
+![rgb_0002](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/71c802e9-3e4d-41da-9a4c-4acbbc243481)
+![rgb_0001](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/411d2544-c2b7-4c8c-986c-6dc154c8bf24)
+![rgb_0000](https://github.com/bobojiang26/Pose-Refinement-with-Predicted-3D-Model/assets/91231457/958c0074-6f4a-421a-9faf-7716f31e4007)
+
 
 The initial image:
 
