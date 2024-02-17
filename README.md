@@ -5,7 +5,7 @@ The pipeline is as follow:
 2. Use one of the images to get the predicted 3d model from [One-2-3-45++](http://sudo.ai/3dgen).
 3. Use the predicted model and an image rendered from the ground truth model(with the initial coarse pose) to get a precise pose of the image.
 
-We use Pytorch3d as the framework. 
+We use Pytorch3d as the framework.
 
 First, we try to refine the pose from the ground truth model to the ground truth model.(or from predicted model to the predicted model)
 The silhouette render is effective for this problem. We can use the silhoutte render, and take the loss as the MSE loss between the alpha channels of the initial image and the target image to optimize the pose(where the initial image is the image rendered with the initial coarse pose, and the target image is the image rendered with the target pose). Since only the alpha channel works for the optimization, texture of the 3d model is not needed. Therefore, we refine the pose based on the 3d model without texture.
